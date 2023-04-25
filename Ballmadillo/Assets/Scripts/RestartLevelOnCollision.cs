@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class RestartLevelOnCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] string strTag;
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.collider.tag == strTag)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

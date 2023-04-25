@@ -6,7 +6,7 @@ using System. Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RestartLevelwithButton : MonoBehaviour
+public class RestartLevelWithButton : MonoBehaviour
 {
     [SerializeField]
     KeyCode keyRestart;
