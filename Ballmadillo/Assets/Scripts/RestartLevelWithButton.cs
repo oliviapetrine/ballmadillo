@@ -10,9 +10,13 @@ public class RestartLevelWithButton : MonoBehaviour
 {
     [SerializeField]
     KeyCode keyRestart;
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(keyRestart))
+        if (Input.GetKey(keyRestart)){
+        // Resume the scene
+            Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1f;
+        }
     }
 }
