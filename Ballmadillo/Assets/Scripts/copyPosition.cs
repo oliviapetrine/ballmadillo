@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class CopyPosition : MonoBehaviour
+public class CopyPosition1 : MonoBehaviour
 {
-    [SerializeField]
-    Transform transTarget;
+    
     void Update()
     {
-        transform.position = transTarget.position;
+        //transform.position = transTarget.position;
+        
     }
 }
