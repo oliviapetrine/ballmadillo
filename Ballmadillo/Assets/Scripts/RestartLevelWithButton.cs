@@ -15,8 +15,8 @@ public class RestartLevelWithButton : MonoBehaviour
         if (Input.GetKey(keyRestart)){
         // Resume the scene
             Time.timeScale = 1f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
             Time.timeScale = 1f;
         }
     }
-}

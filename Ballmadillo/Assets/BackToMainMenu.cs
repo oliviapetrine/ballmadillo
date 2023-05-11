@@ -7,8 +7,13 @@ public class BackToMainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1f;
+
+        
 
         SceneManager.LoadScene("Menu");
+        RestartLevelOnCollision levelRestart = FindObjectOfType<RestartLevelOnCollision>();
+        if (levelRestart != null) {
+            levelRestart.ResetScores();
+        }
     }
 }
