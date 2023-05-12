@@ -20,6 +20,11 @@ public class RestartLevelOnCollision : MonoBehaviour
     private bool player1Scored = false;
     private bool player2Scored = false;
 
+    public GameObject PlayerCam1;
+    public GameObject PlayerCam2;
+    public GameObject WorldCam;
+    private bool Winner = false;
+
     private void Start()
     {
         player1ScoreText.text = "Player 1 Score: " + ScoreManager.player1Score;
@@ -28,25 +33,30 @@ public class RestartLevelOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (Winner)
+        {
+            return;
+        }
+        Winner = true;
+        WorldCam.SetActive(false);
+
         if (collision.gameObject.CompareTag("Player1") && !player1Scored){
+            PlayerCam2.SetActive(true);
             ScoreManager.player2Score++;
             player2ScoreText.text = "Player 2 Score: " + ScoreManager.player2Score;
 
             winningPlayerText.text = "Player 2 won!";
             uiCanvas.SetActive(true);
-            // Pause the scene
-            Time.timeScale = 0f;
 
             player1Scored = true;
         }
         else if(collision.gameObject.CompareTag("Player2") && !player2Scored){
+            PlayerCam1.SetActive(true);
             ScoreManager.player1Score++;
             player1ScoreText.text = "Player 1 Score: " + ScoreManager.player1Score;
 
             winningPlayerText.text = "Player 1 won!";
             uiCanvas.SetActive(true);
-            // Pause the scene
-            Time.timeScale = 0f;
 
             player2Scored = true;
         }
